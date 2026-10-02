@@ -6,6 +6,38 @@
 <title>Hydra — Personalize Your Bottle</title>
 
 <style>
+  .site-footer {
+  background-color: #f8f9fa;
+  border-top: 1px solid #e9ecef;
+  padding: 20px 0;
+  margin-top: 40px;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 0 20px;
+}
+
+.footer-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid #ccc;
+}
+
+.footer-attribution {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  color: #333333;
+}
+
 :root{
   --ink:#243047;
   --muted:#69748a;
@@ -41,7 +73,7 @@ button{
   border-bottom:1px solid var(--line);
   display:flex;
   align-items:center;
-  justify-content:space-between;
+  justify-space-between;
   padding:0 5vw;
   position:sticky;
   top:0;
@@ -648,7 +680,6 @@ h1{
 }
 
 @media(max-width:1100px){
-
   .app{
     grid-template-columns:280px minmax(320px,1fr);
   }
@@ -666,7 +697,6 @@ h1{
 }
 
 @media(max-width:800px){
-
   .app{
     grid-template-columns:1fr;
   }
@@ -701,7 +731,6 @@ h1{
 <body>
 
 <header class="topbar">
-
   <div class="brand">
     hydra<span>°</span>
   </div>
@@ -715,14 +744,10 @@ h1{
       ♡ Save design
     </button>
   </div>
-
 </header>
 
-
 <section class="hero">
-
   <div>
-
     <div class="eyebrow">
       Your bottle. Your rules.
     </div>
@@ -735,339 +760,159 @@ h1{
       Pick a shape, play with color, add your name and stickers,
       then move everything around until it feels right.
     </p>
-
   </div>
 
   <div class="saved-count" id="savedCount">
     0 saved designs
   </div>
-
 </section>
-
 
 <main class="app">
 
-
 <!-- LEFT PANEL -->
-
 <aside class="panel">
-
   <div class="section">
-
     <div class="section-title">
       1. Choose your size
     </div>
-
     <div class="size-grid" id="sizeGrid"></div>
-
   </div>
 
-
   <div class="section">
-
     <div class="section-title">
       Choose your shape
     </div>
-
     <div class="shape-grid" id="shapeGrid"></div>
-
   </div>
 
-
   <div class="section">
-
     <div class="section-title">
       Body color
-
-      <small id="bodyHexLabel">
-        #FF9FC5
-      </small>
-
+      <small id="bodyHexLabel">#FF9FC5</small>
     </div>
-
     <div class="color-grid" id="bodyColors"></div>
-
     <div class="hex-row">
-
-      <input
-        class="hex"
-        id="bodyHex"
-        placeholder="#FF69B4"
-        aria-label="Body HEX code"
-      >
-
-      <button class="mini" id="bodyHexBtn">
-        Use HEX
-      </button>
-
+      <input class="hex" id="bodyHex" placeholder="#FF69B4" aria-label="Body HEX code">
+      <button class="mini" id="bodyHexBtn">Use HEX</button>
     </div>
-
   </div>
-
 
   <div class="section">
-
     <div class="section-title">
-
       Lid color
-
-      <small id="lidHexLabel">
-        #5D68FF
-      </small>
-
+      <small id="lidHexLabel">#5D68FF</small>
     </div>
-
     <div class="color-grid" id="lidColors"></div>
-
     <div class="hex-row">
-
-      <input
-        class="hex"
-        id="lidHex"
-        placeholder="#FF69B4"
-        aria-label="Lid HEX code"
-      >
-
-      <button class="mini" id="lidHexBtn">
-        Use HEX
-      </button>
-
+      <input class="hex" id="lidHex" placeholder="#FF69B4" aria-label="Lid HEX code">
+      <button class="mini" id="lidHexBtn">Use HEX</button>
     </div>
-
   </div>
-
 </aside>
 
-
-
 <!-- CENTER BOTTLE -->
-
 <section class="stage">
-
   <div class="stage-head">
-
-    <strong id="stageTitle">
-      Your 24 oz bottle
-    </strong>
-
-    <span>
-      Drag anything on the bottle ✦
-    </span>
-
+    <strong id="stageTitle">Your 24 oz bottle</strong>
+    <span>Drag anything on the bottle ✦</span>
   </div>
 
-
   <div class="canvas" id="canvas">
-
     <div class="floor"></div>
-
     <div class="bottle-wrap" id="bottleWrap">
-
       <div class="bottle" id="bottle">
-
         <div class="neck"></div>
-
         <div class="lid" id="lid"></div>
-
         <div class="art-layer" id="artLayer"></div>
-
       </div>
-
     </div>
-
     <div class="empty-hint">
       Click a text or sticker to edit it
     </div>
-
   </div>
-
 </section>
 
-
-
 <!-- RIGHT PANEL -->
-
 <aside class="panel right-panel">
-
-
   <div class="section">
-
     <div class="section-title">
       2. Add your text
     </div>
-
-    <input
-      class="text-input"
-      id="textInput"
-      placeholder="Type your name, mantra, title..."
-    >
-
+    <input class="text-input" id="textInput" placeholder="Type your name, mantra, title...">
 
     <div class="font-grid" id="fontGrid"></div>
 
-
     <div class="toolbar">
-
-      <button class="tool" id="boldBtn">
-        B
-      </button>
-
-      <button class="tool" id="italicBtn">
-        <i>I</i>
-      </button>
-
-      <button class="tool" id="rotateLeft">
-        ↶
-      </button>
-
-      <button class="tool" id="rotateRight">
-        ↷
-      </button>
-
-      <button class="tool" id="deleteItem">
-        Delete
-      </button>
-
+      <button class="tool" id="boldBtn">B</button>
+      <button class="tool" id="italicBtn"><i>I</i></button>
+      <button class="tool" id="rotateLeft">↶</button>
+      <button class="tool" id="rotateRight">↷</button>
+      <button class="tool" id="deleteItem">Delete</button>
     </div>
-
 
     <div class="hex-row">
-
-      <input
-        class="hex"
-        id="textHex"
-        placeholder="#FF69B4"
-        aria-label="Text HEX code"
-      >
-
-      <button class="mini" id="textHexBtn">
-        Text color
-      </button>
-
+      <input class="hex" id="textHex" placeholder="#FF69B4" aria-label="Text HEX code">
+      <button class="mini" id="textHexBtn">Text color</button>
     </div>
-
 
     <div class="toolbar">
-
-      <button class="tool" id="smaller">
-        A−
-      </button>
-
-      <button class="tool" id="larger">
-        A+
-      </button>
-
-      <button class="tool" id="centerItem">
-        Center
-      </button>
-
+      <button class="tool" id="smaller">A−</button>
+      <button class="tool" id="larger">A+</button>
+      <button class="tool" id="centerItem">Center</button>
     </div>
-
   </div>
 
-
-
   <div class="section">
-
     <div class="section-title">
       3. Add a little personality
     </div>
-
     <div class="sticker-grid" id="stickerGrid"></div>
-
   </div>
 
-
-
   <div class="section">
-
     <div class="section-title">
       Find your vibe
     </div>
-
     <div class="vibe-list" id="vibeList"></div>
-
   </div>
-
 
   <div class="right-note">
-
-    <b>Tip:</b>
-
-    Select a text or sticker, then drag it around the bottle.
-    Use the controls above to rotate and resize it.
-
+    <b>Tip:</b> Select a text or sticker, then drag it around the bottle. Use the controls above to rotate and resize it.
   </div>
-
 </aside>
 
 </main>
 
-
-
 <!-- FINAL DESIGN MODAL -->
-
 <div class="modal" id="modal">
-
   <div class="modal-card">
-
-    <div class="eyebrow">
-      Final design
-    </div>
-
-    <h2 style="margin:6px 0 18px;font-size:30px">
-      You made this. ✨
-    </h2>
-
+    <div class="eyebrow">Final design</div>
+    <h2 style="margin:6px 0 18px;font-size:30px">You made this. ✨</h2>
 
     <div class="summary">
-
-      <div
-        class="summary-bottle"
-        id="summaryBottle"
-      ></div>
-
-
-      <div
-        class="details"
-        id="summaryDetails"
-      ></div>
-
+      <div class="summary-bottle" id="summaryBottle"></div>
+      <div class="details" id="summaryDetails"></div>
     </div>
-
 
     <div class="modal-actions">
-
-      <button
-        class="ghost"
-        id="closeModal"
-      >
-        Keep editing
-      </button>
-
-      <button
-        class="primary"
-        id="saveFinal"
-      >
-        Save to my designs
-      </button>
-
+      <button class="ghost" id="closeModal">Keep editing</button>
+      <button class="primary" id="saveFinal">Save to my designs</button>
     </div>
-
   </div>
-
 </div>
 
-
+<!-- FOOTER WITH ENCODED IMAGE PATH -->
+<footer class="site-footer">
+  <div class="footer-content">
+    <img src="Headshoot.jpg" alt="Profile Photo" class="footer-avatar">
+    <p class="footer-attribution">Designed by Eduarda Santos</p>
+  </div>
+</footer>
 
 <script>
 
-/* =========================
-   DATA
-========================= */
-
+/* DATA */
 const palettes = [
-
   ["Cotton Candy","#FFB7D5","#F4F7FF"],
   ["Bubblegum","#FF69B4","#FFD1E5"],
   ["Sky","#72B8FF","#DDF1FF"],
@@ -1084,1620 +929,465 @@ const palettes = [
   ["Rose","#D95A7D","#F7CCD8"],
   ["Cloud","#DDE3ED","#F7F8FB"],
   ["Charcoal","#384152","#B7BECA"]
-
 ];
-
 
 const sizes = [
-
-  {
-    oz:16,
-    name:"16 oz",
-    desc:"Little + light"
-  },
-
-  {
-    oz:24,
-    name:"24 oz",
-    desc:"Everyday"
-  },
-
-  {
-    oz:32,
-    name:"32 oz",
-    desc:"Stay hydrated"
-  }
-
+  { oz:16, name:"16 oz", desc:"Little + light" },
+  { oz:24, name:"24 oz", desc:"Everyday" },
+  { oz:32, name:"32 oz", desc:"Stay hydrated" }
 ];
-
 
 const shapes = [
-
-  {
-    id:"wide",
-    name:"Wide & short",
-    desc:"Easy grip"
-  },
-
-  {
-    id:"tall",
-    name:"Thin & tall",
-    desc:"Sleek + slim"
-  }
-
+  { id:"wide", name:"Wide & short", desc:"Easy grip" },
+  { id:"tall", name:"Thin & tall", desc:"Sleek + slim" }
 ];
 
-
 const fonts = [
-
   ["Clean","Inter,Arial,sans-serif"],
   ["Rounded","Trebuchet MS,Arial,sans-serif"],
   ["Editorial","Georgia,serif"],
   ["Playful","Comic Sans MS,cursive"],
   ["Mono","ui-monospace,monospace"],
   ["Soft","Verdana,sans-serif"]
-
 ];
 
-
 const stickers = [
-
   "♡","♥","★","✦","☆",
   "☀","☁","☾","✿","🌸",
   "⚡","☻","✈","☕","📚",
   "🏃","🎀","🌊","🍓","✨"
-
 ];
-
 
 const vibes = [
-
-  [
-    "Runner",
-    "🏃",
-    ["#EAF5FF","#3978D8"],
-    "RUN CLUB",
-    "★"
-  ],
-
-  [
-    "Study",
-    "📚",
-    ["#FFF6D9","#7652B9"],
-    "FOCUS",
-    "✦"
-  ],
-
-  [
-    "Coquette",
-    "🎀",
-    ["#FFF0F6","#D95A7D"],
-    "pretty",
-    "♡"
-  ],
-
-  [
-    "Beach",
-    "🌊",
-    ["#E7FAFF","#3978D8"],
-    "SUN + SEA",
-    "☀"
-  ],
-
-  [
-    "Minimalist",
-    "🌿",
-    ["#F3F5F2","#7FAF93"],
-    "hydrate",
-    "✿"
-  ],
-
-  [
-    "That Girl",
-    "✨",
-    ["#F5F2FF","#A98BFF"],
-    "YOU GOT THIS",
-    "✦"
-  ]
-
+  ["Runner", "🏃", ["#EAF5FF","#3978D8"], "RUN CLUB", "★"],
+  ["Study", "📚", ["#FFF6D9","#7652B9"], "FOCUS", "✦"],
+  ["Coquette", "🎀", ["#FFF0F6","#D95A7D"], "pretty", "♡"],
+  ["Beach", "🌊", ["#E7FAFF","#3978D8"], "SUN + SEA", "☀"],
+  ["Minimalist", "🌿", ["#F3F5F2","#7FAF93"], "hydrate", "✿"],
+  ["That Girl", "✨", ["#F5F2FF","#A98BFF"], "YOU GOT THIS", "✦"]
 ];
 
-
-
-/* =========================
-   APP STATE
-========================= */
-
+/* STATE */
 let state = {
-
   size:24,
-
   shape:"wide",
-
   body:"#FF9FC5",
-
   lid:"#5D68FF",
-
   items:[],
-
   selected:null,
-
   nextId:1
-
 };
 
-
-
-/* =========================
-   HELPERS
-========================= */
-
+/* HELPERS */
 const $ = id => document.getElementById(id);
 
-
 function validHex(value){
-
   return /^#[0-9A-F]{6}$/i.test(value);
-
 }
-
 
 function setHex(type,value){
-
   value = value.trim();
-
-  if(!value.startsWith("#")){
-    value = "#" + value;
-  }
-
+  if(!value.startsWith("#")) value = "#" + value;
   if(!validHex(value)){
-
-    alert(
-      "Please enter a valid 6-digit HEX code, like #FF69B4."
-    );
-
+    alert("Please enter a valid 6-digit HEX code, like #FF69B4.");
     return;
-
   }
-
   state[type] = value.toUpperCase();
-
   render();
-
 }
 
-
-
-/* =========================
-   RENDER
-========================= */
-
+/* RENDER */
 function render(){
-
   const bottle = $("bottle");
-
   const lid = $("lid");
 
-
   bottle.style.background = state.body;
-
-
-  bottle.style.width =
-    state.shape === "wide"
-      ? "190px"
-      : "145px";
-
-
-  bottle.style.height =
-    state.size === 16
-      ? "345px"
-      : state.size === 32
-        ? "425px"
-        : "385px";
-
+  bottle.style.width = state.shape === "wide" ? "190px" : "145px";
+  bottle.style.height = state.size === 16 ? "345px" : state.size === 32 ? "425px" : "385px";
 
   lid.style.background = state.lid;
+  lid.style.width = state.shape === "wide" ? "110px" : "94px";
+  lid.style.top = state.size === 32 ? "-60px" : "-57px";
 
+  $("stageTitle").textContent = `Your ${state.size} oz ${state.shape === "wide" ? "wide & short" : "thin & tall"} bottle`;
+  $("bodyHexLabel").textContent = state.body;
+  $("lidHexLabel").textContent = state.lid;
+  $("bodyHex").value = state.body;
+  $("lidHex").value = state.lid;
 
-  lid.style.width =
-    state.shape === "wide"
-      ? "110px"
-      : "94px";
+  document.querySelectorAll(".size-option").forEach(button => {
+    button.classList.toggle("active", +button.dataset.v === state.size);
+  });
 
-
-  lid.style.top =
-    state.size === 32
-      ? "-60px"
-      : "-57px";
-
-
-  $("stageTitle").textContent =
-    `Your ${state.size} oz ${
-      state.shape === "wide"
-        ? "wide & short"
-        : "thin & tall"
-    } bottle`;
-
-
-  $("bodyHexLabel").textContent =
-    state.body;
-
-  $("lidHexLabel").textContent =
-    state.lid;
-
-
-  $("bodyHex").value =
-    state.body;
-
-  $("lidHex").value =
-    state.lid;
-
-
-  document
-    .querySelectorAll(".size-option")
-    .forEach(button => {
-
-      button.classList.toggle(
-        "active",
-        +button.dataset.v === state.size
-      );
-
-    });
-
-
-  document
-    .querySelectorAll(".shape-option")
-    .forEach(button => {
-
-      button.classList.toggle(
-        "active",
-        button.dataset.v === state.shape
-      );
-
-    });
-
+  document.querySelectorAll(".shape-option").forEach(button => {
+    button.classList.toggle("active", button.dataset.v === state.shape);
+  });
 
   renderItems();
-
   updateSavedCount();
-
 }
 
-
-
-/* =========================
-   BUILD CONTROLS
-========================= */
-
+/* BUILD CONTROLS */
 function renderOptions(){
+  $("sizeGrid").innerHTML = sizes.map(size => `
+    <button class="option size-option ${size.oz === 24 ? "active" : ""}" data-v="${size.oz}">
+      <strong>${size.name}</strong>
+      <small>${size.desc}</small>
+    </button>
+  `).join("");
 
-  $("sizeGrid").innerHTML =
-    sizes.map(size => `
-
-      <button
-        class="option size-option ${
-          size.oz === 24 ? "active" : ""
-        }"
-        data-v="${size.oz}"
-      >
-
-        <strong>
-          ${size.name}
-        </strong>
-
-        <small>
-          ${size.desc}
-        </small>
-
-      </button>
-
-    `).join("");
-
-
-  $("shapeGrid").innerHTML =
-    shapes.map(shape => `
-
-      <button
-        class="option shape-option ${
-          shape.id === "wide" ? "active" : ""
-        }"
-        data-v="${shape.id}"
-      >
-
-        <strong>
-          ${shape.name}
-        </strong>
-
-        <small>
-          ${shape.desc}
-        </small>
-
-      </button>
-
-    `).join("");
-
+  $("shapeGrid").innerHTML = shapes.map(shape => `
+    <button class="option shape-option ${shape.id === "wide" ? "active" : ""}" data-v="${shape.id}">
+      <strong>${shape.name}</strong>
+      <small>${shape.desc}</small>
+    </button>
+  `).join("");
 
   $("sizeGrid").onclick = event => {
-
-    const button =
-      event.target.closest(".size-option");
-
-    if(button){
-
-      state.size =
-        +button.dataset.v;
-
-      render();
-
-    }
-
+    const button = event.target.closest(".size-option");
+    if(button){ state.size = +button.dataset.v; render(); }
   };
-
 
   $("shapeGrid").onclick = event => {
-
-    const button =
-      event.target.closest(".shape-option");
-
-    if(button){
-
-      state.shape =
-        button.dataset.v;
-
-      render();
-
-    }
-
+    const button = event.target.closest(".shape-option");
+    if(button){ state.shape = button.dataset.v; render(); }
   };
 
+  $("bodyColors").innerHTML = palettes.map(p => `
+    <button class="color-btn" title="${p[0]}" data-color="${p[1]}">
+      <div class="swatch" style="background:${p[1]}"></div>
+      ${p[0]}
+    </button>
+  `).join("");
 
-
-  /* COLORS */
-
-  const bodyColors = palettes
-    .map(palette => `
-
-      <button
-        class="color-btn"
-        title="${palette[0]}"
-        data-color="${palette[1]}"
-      >
-
-        <div
-          class="swatch"
-          style="background:${palette[1]}"
-        ></div>
-
-        ${palette[0]}
-
-      </button>
-
-    `)
-    .join("");
-
-
-  $("bodyColors").innerHTML =
-    bodyColors;
-
-
-  $("lidColors").innerHTML =
-    palettes
-      .map(palette => `
-
-        <button
-          class="color-btn"
-          title="${palette[0]}"
-          data-color="${palette[2]}"
-        >
-
-          <div
-            class="swatch"
-            style="background:${palette[2]}"
-          ></div>
-
-          ${palette[0]}
-
-        </button>
-
-      `)
-      .join("");
-
+  $("lidColors").innerHTML = palettes.map(p => `
+    <button class="color-btn" title="${p[0]}" data-color="${p[2]}">
+      <div class="swatch" style="background:${p[2]}"></div>
+      ${p[0]}
+    </button>
+  `).join("");
 
   $("bodyColors").onclick = event => {
-
-    const button =
-      event.target.closest(".color-btn");
-
-    if(button){
-
-      setHex(
-        "body",
-        button.dataset.color
-      );
-
-    }
-
+    const button = event.target.closest(".color-btn");
+    if(button) setHex("body", button.dataset.color);
   };
-
 
   $("lidColors").onclick = event => {
-
-    const button =
-      event.target.closest(".color-btn");
-
-    if(button){
-
-      setHex(
-        "lid",
-        button.dataset.color
-      );
-
-    }
-
+    const button = event.target.closest(".color-btn");
+    if(button) setHex("lid", button.dataset.color);
   };
 
-
-
-  /* FONTS */
-
-  $("fontGrid").innerHTML =
-    fonts.map((font,index) => `
-
-      <button
-        class="font-option"
-        data-font="${index}"
-        style="font-family:${font[1]}"
-      >
-
-        ${font[0]}
-
-      </button>
-
-    `).join("");
-
+  $("fontGrid").innerHTML = fonts.map((font,index) => `
+    <button class="font-option" data-font="${index}" style="font-family:${font[1]}">
+      ${font[0]}
+    </button>
+  `).join("");
 
   $("fontGrid").onclick = event => {
-
-    const button =
-      event.target.closest(".font-option");
-
+    const button = event.target.closest(".font-option");
     if(button && selected()){
-
-      selected().font =
-        fonts[+button.dataset.font][1];
-
+      selected().font = fonts[+button.dataset.font][1];
       render();
-
     }
-
   };
 
-
-
-  /* STICKERS */
-
-  $("stickerGrid").innerHTML =
-    stickers.map(sticker => `
-
-      <button
-        class="sticker"
-        data-sticker="${sticker}"
-      >
-        ${sticker}
-      </button>
-
-    `).join("");
-
+  $("stickerGrid").innerHTML = stickers.map(sticker => `
+    <button class="sticker" data-sticker="${sticker}">${sticker}</button>
+  `).join("");
 
   $("stickerGrid").onclick = event => {
-
-    const button =
-      event.target.closest(".sticker");
-
-    if(button){
-
-      addSticker(
-        button.dataset.sticker
-      );
-
-    }
-
+    const button = event.target.closest(".sticker");
+    if(button) addSticker(button.dataset.sticker);
   };
 
-
-
-  /* VIBES */
-
-  $("vibeList").innerHTML =
-    vibes.map((vibe,index) => `
-
-      <button
-        class="vibe"
-        data-vibe="${index}"
-      >
-
-        <span>
-          ${vibe[1]}
-        </span>
-
-        <b>
-          ${vibe[0]}
-        </b>
-
-      </button>
-
-    `).join("");
-
+  $("vibeList").innerHTML = vibes.map((vibe,index) => `
+    <button class="vibe" data-vibe="${index}">
+      <span>${vibe[1]}</span>
+      <b>${vibe[0]}</b>
+    </button>
+  `).join("");
 
   $("vibeList").onclick = event => {
-
-    const button =
-      event.target.closest(".vibe");
-
-    if(button){
-
-      applyVibe(
-        +button.dataset.vibe
-      );
-
-    }
-
+    const button = event.target.closest(".vibe");
+    if(button) applyVibe(+button.dataset.vibe);
   };
-
 }
 
-
-
-/* =========================
-   ITEMS
-========================= */
-
+/* ITEMS */
 function selected(){
-
-  return state.items.find(
-    item => item.id === state.selected
-  );
-
+  return state.items.find(item => item.id === state.selected);
 }
-
-
 
 function renderItems(){
-
-  const layer =
-    $("artLayer");
-
+  const layer = $("artLayer");
   layer.innerHTML = "";
 
-
   state.items.forEach(item => {
-
-    const element =
-      document.createElement("div");
-
-
-    element.className =
-      `item ${
-        item.id === state.selected
-          ? "selected"
-          : ""
-      } ${
-        item.type === "text"
-          ? "text-item"
-          : "sticker-item"
-      }`;
-
-
-    element.dataset.id =
-      item.id;
-
-
-    element.textContent =
-      item.value;
-
-
-    element.style.left =
-      item.x + "%";
-
-
-    element.style.top =
-      item.y + "%";
-
-
-    element.style.transform =
-      `translate(-50%,-50%)
-       rotate(${item.rot}deg)
-       scale(${item.scale})`;
-
+    const element = document.createElement("div");
+    element.className = `item ${item.id === state.selected ? "selected" : ""} ${item.type === "text" ? "text-item" : "sticker-item"}`;
+    element.dataset.id = item.id;
+    element.textContent = item.value;
+    element.style.left = item.x + "%";
+    element.style.top = item.y + "%";
+    element.style.transform = `translate(-50%,-50%) rotate(${item.rot}deg) scale(${item.scale})`;
 
     if(item.type === "text"){
-
-      element.style.color =
-        item.color;
-
-      element.style.fontFamily =
-        item.font;
-
-      element.style.fontSize =
-        item.size + "px";
-
-      element.style.fontWeight =
-        item.bold
-          ? "900"
-          : "700";
-
-      element.style.fontStyle =
-        item.italic
-          ? "italic"
-          : "normal";
-
+      element.style.color = item.color;
+      element.style.fontFamily = item.font;
+      element.style.fontSize = item.size + "px";
+      element.style.fontWeight = item.bold ? "900" : "700";
+      element.style.fontStyle = item.italic ? "italic" : "normal";
     }
 
-
-    element.innerHTML +=
-      `<span class="resize-handle"></span>`;
-
-
-    element.addEventListener(
-      "pointerdown",
-      startDrag
-    );
-
-
-    element.addEventListener(
-      "click",
-      event => {
-
-        event.stopPropagation();
-
-        state.selected =
-          item.id;
-
-        syncTextPanel();
-
-        renderItems();
-
-      }
-    );
-
+    element.innerHTML += `<span class="resize-handle"></span>`;
+    element.addEventListener("pointerdown", startDrag);
+    element.addEventListener("click", event => {
+      event.stopPropagation();
+      state.selected = item.id;
+      syncTextPanel();
+      renderItems();
+    });
 
     layer.appendChild(element);
-
   });
-
 
   syncTextPanel();
-
 }
 
-
-
-/* =========================
-   DRAGGING
-========================= */
-
+/* DRAGGING */
 function startDrag(event){
+  if(event.target.classList.contains("resize-handle")) return;
 
-  if(
-    event.target.classList
-      .contains("resize-handle")
-  ){
-
-    return;
-
-  }
-
-
-  const element =
-    event.currentTarget;
-
-
-  const item =
-    state.items.find(
-      i => i.id == element.dataset.id
-    );
-
-
-  state.selected =
-    item.id;
-
-
+  const element = event.currentTarget;
+  const item = state.items.find(i => i.id == element.dataset.id);
+  state.selected = item.id;
   renderItems();
 
+  const rect = $("artLayer").getBoundingClientRect();
+  const startX = event.clientX;
+  const startY = event.clientY;
+  const originalX = item.x;
+  const originalY = item.y;
 
-  const rect =
-    $("artLayer")
-      .getBoundingClientRect();
-
-
-  const startX =
-    event.clientX;
-
-  const startY =
-    event.clientY;
-
-
-  const originalX =
-    item.x;
-
-  const originalY =
-    item.y;
-
-
-  element.setPointerCapture(
-    event.pointerId
-  );
-
+  element.setPointerCapture(event.pointerId);
 
   function move(ev){
-
-    item.x =
-      Math.max(
-        3,
-        Math.min(
-          97,
-          originalX +
-          (ev.clientX - startX)
-          / rect.width * 100
-        )
-      );
-
-
-    item.y =
-      Math.max(
-        3,
-        Math.min(
-          97,
-          originalY +
-          (ev.clientY - startY)
-          / rect.height * 100
-        )
-      );
-
-
+    item.x = Math.max(3, Math.min(97, originalX + (ev.clientX - startX) / rect.width * 100));
+    item.y = Math.max(3, Math.min(97, originalY + (ev.clientY - startY) / rect.height * 100));
     renderItems();
-
   }
-
 
   function up(){
-
-    element.removeEventListener(
-      "pointermove",
-      move
-    );
-
-    element.removeEventListener(
-      "pointerup",
-      up
-    );
-
+    element.removeEventListener("pointermove", move);
+    element.removeEventListener("pointerup", up);
   }
 
-
-  element.addEventListener(
-    "pointermove",
-    move
-  );
-
-
-  element.addEventListener(
-    "pointerup",
-    up
-  );
-
+  element.addEventListener("pointermove", move);
+  element.addEventListener("pointerup", up);
 }
 
-
-
-/* =========================
-   ADD TEXT
-========================= */
-
+/* ADD TEXT & STICKERS */
 function addText(value){
-
-  if(!value.trim()){
-
-    return;
-
-  }
-
-
+  if(!value.trim()) return;
   const item = {
-
-    id:state.nextId++,
-
-    type:"text",
-
-    value:value.trim(),
-
-    x:50,
-
-    y:50,
-
-    rot:0,
-
-    scale:1,
-
-    size:27,
-
-    color:"#FFFFFF",
-
-    font:fonts[0][1],
-
-    bold:true,
-
-    italic:false
-
+    id: state.nextId++,
+    type: "text",
+    value: value.trim(),
+    x: 50, y: 50, rot: 0, scale: 1, size: 27,
+    color: "#FFFFFF", font: fonts[0][1], bold: true, italic: false
   };
-
-
   state.items.push(item);
-
-  state.selected =
-    item.id;
-
+  state.selected = item.id;
   render();
-
 }
-
-
-
-/* =========================
-   ADD STICKER
-========================= */
 
 function addSticker(value){
-
   const item = {
-
-    id:state.nextId++,
-
-    type:"sticker",
-
-    value:value,
-
-    x:50,
-
-    y:50,
-
-    rot:0,
-
-    scale:1
-
+    id: state.nextId++,
+    type: "sticker",
+    value: value,
+    x: 50, y: 50, rot: 0, scale: 1
   };
-
-
   state.items.push(item);
-
-  state.selected =
-    item.id;
-
+  state.selected = item.id;
   render();
-
 }
-
-
-
-/* =========================
-   TEXT PANEL
-========================= */
 
 function syncTextPanel(){
+  const item = selected();
+  const input = $("textInput");
 
-  const item =
-    selected();
-
-
-  const input =
-    $("textInput");
-
-
-  if(
-    item &&
-    item.type === "text"
-  ){
-
-    input.value =
-      item.value;
-
-
-    $("textHex").value =
-      item.color;
-
-
-    document
-      .querySelectorAll(".font-option")
-      .forEach(button => {
-
-        button.classList.toggle(
-          "active",
-
-          +button.dataset.font ===
-          fonts.findIndex(
-            font =>
-              font[1] === item.font
-          )
-        );
-
-      });
-
-  }
-
-  else{
-
+  if(item && item.type === "text"){
+    input.value = item.value;
+    $("textHex").value = item.color;
+    document.querySelectorAll(".font-option").forEach(button => {
+      button.classList.toggle("active", +button.dataset.font === fonts.findIndex(f => f[1] === item.font));
+    });
+  } else {
     input.value = "";
-
-    document
-      .querySelectorAll(".font-option")
-      .forEach(button =>
-        button.classList.remove("active")
-      );
-
+    document.querySelectorAll(".font-option").forEach(button => button.classList.remove("active"));
   }
-
 }
-
-
-
-/* =========================
-   VIBES
-========================= */
 
 function applyVibe(index){
-
-  const vibe =
-    vibes[index];
-
-
-  state.body =
-    vibe[2][0];
-
-
-  state.lid =
-    vibe[2][1];
-
-
+  const vibe = vibes[index];
+  state.body = vibe[2][0];
+  state.lid = vibe[2][1];
   state.items = [];
 
-
   state.items.push({
-
-    id:state.nextId++,
-
-    type:"text",
-
-    value:vibe[3],
-
-    x:50,
-
-    y:55,
-
-    rot:0,
-
-    scale:1,
-
-    size:25,
-
-    color:"#FFFFFF",
-
-    font:
-      fonts[
-        index % fonts.length
-      ][1],
-
-    bold:true,
-
-    italic:false
-
+    id: state.nextId++,
+    type: "text",
+    value: vibe[3],
+    x: 50, y: 55, rot: 0, scale: 1, size: 25,
+    color: "#FFFFFF", font: fonts[index % fonts.length][1], bold: true, italic: false
   });
 
-
   state.items.push({
-
-    id:state.nextId++,
-
-    type:"sticker",
-
-    value:vibe[4],
-
-    x:50,
-
-    y:38,
-
-    rot:-8,
-
-    scale:1
-
+    id: state.nextId++,
+    type: "sticker",
+    value: vibe[4],
+    x: 50, y: 38, rot: -8, scale: 1
   });
 
-
-  state.selected =
-    state.items[0].id;
-
-
+  state.selected = state.items[0].id;
   render();
-
 }
 
-
-
-/* =========================
-   SAVING
-========================= */
-
+/* SAVING & UTILS */
 function saveDesign(){
-
-  const saved =
-    JSON.parse(
-      localStorage.getItem(
-        "hydraDesigns"
-      ) || "[]"
-    );
-
-
-  const copy =
-    JSON.parse(
-      JSON.stringify(state)
-    );
-
-
-  copy.savedAt =
-    new Date().toLocaleString();
-
-
+  const saved = JSON.parse(localStorage.getItem("hydraDesigns") || "[]");
+  const copy = JSON.parse(JSON.stringify(state));
+  copy.savedAt = new Date().toLocaleString();
   saved.unshift(copy);
-
-
-  localStorage.setItem(
-    "hydraDesigns",
-    JSON.stringify(
-      saved.slice(0,20)
-    )
-  );
-
-
+  localStorage.setItem("hydraDesigns", JSON.stringify(saved.slice(0,20)));
   updateSavedCount();
-
-
-  alert(
-    "Saved! Your design is stored in this browser."
-  );
-
+  alert("Saved! Your design is stored in this browser.");
 }
-
-
 
 function updateSavedCount(){
-
-  const saved =
-    JSON.parse(
-      localStorage.getItem(
-        "hydraDesigns"
-      ) || "[]"
-    );
-
-
-  const number =
-    saved.length;
-
-
-  $("savedCount").textContent =
-    `${number} saved design${
-      number === 1 ? "" : "s"
-    }`;
-
+  const saved = JSON.parse(localStorage.getItem("hydraDesigns") || "[]");
+  const number = saved.length;
+  $("savedCount").textContent = `${number} saved design${number === 1 ? "" : "s"}`;
 }
-
-
-
-/* =========================
-   NEW BOTTLE
-========================= */
 
 function newBottle(){
-
-  state = {
-
-    size:24,
-
-    shape:"wide",
-
-    body:"#FF9FC5",
-
-    lid:"#5D68FF",
-
-    items:[],
-
-    selected:null,
-
-    nextId:1
-
-  };
-
-
+  state = { size:24, shape:"wide", body:"#FF9FC5", lid:"#5D68FF", items:[], selected:null, nextId:1 };
   render();
-
 }
-
-
-
-/* =========================
-   FINAL SUMMARY
-========================= */
 
 function openSummary(){
+  const clone = $("bottleWrap").cloneNode(true);
+  clone.id = "summaryWrap";
+  clone.style.position = "relative";
+  clone.style.left = "auto";
+  clone.style.top = "auto";
+  clone.style.transform = "scale(.6)";
+  clone.style.transformOrigin = "bottom center";
+  clone.style.marginLeft = "-130px";
+  clone.style.marginRight = "-130px";
 
-  const clone =
-    $("bottleWrap").cloneNode(true);
+  $("summaryBottle").innerHTML = "";
+  $("summaryBottle").appendChild(clone);
 
-
-  clone.id =
-    "summaryWrap";
-
-
-  clone.style.position =
-    "relative";
-
-
-  clone.style.left =
-    "auto";
-
-
-  clone.style.top =
-    "auto";
-
-
-  clone.style.transform =
-    "scale(.6)";
-
-
-  clone.style.transformOrigin =
-    "bottom center";
-
-
-  clone.style.marginLeft =
-    "-130px";
-
-
-  clone.style.marginRight =
-    "-130px";
-
-
-  $("summaryBottle").innerHTML =
-    "";
-
-
-  $("summaryBottle")
-    .appendChild(clone);
-
-
-  const texts =
-    state.items
-      .filter(
-        item => item.type === "text"
-      )
-      .map(
-        item => item.value
-      )
-      .join(", ") || "None";
-
-
-  const stickerText =
-    state.items
-      .filter(
-        item => item.type === "sticker"
-      )
-      .map(
-        item => item.value
-      )
-      .join(" ") || "None";
-
+  const texts = state.items.filter(i => i.type === "text").map(i => i.value).join(", ") || "None";
+  const stickerText = state.items.filter(i => i.type === "sticker").map(i => i.value).join(" ") || "None";
 
   $("summaryDetails").innerHTML = `
-
-    <div>
-      <b>Size:</b>
-      ${state.size} oz
-    </div>
-
-    <div>
-      <b>Shape:</b>
-      ${
-        state.shape === "wide"
-          ? "Wide & short"
-          : "Thin & tall"
-      }
-    </div>
-
-    <div>
-      <b>Body:</b>
-      ${state.body}
-    </div>
-
-    <div>
-      <b>Lid:</b>
-      ${state.lid}
-    </div>
-
-    <div>
-      <b>Text:</b>
-      ${escapeHtml(texts)}
-    </div>
-
-    <div>
-      <b>Stickers:</b>
-      ${escapeHtml(stickerText)}
-    </div>
-
+    <div><b>Size:</b> ${state.size} oz</div>
+    <div><b>Shape:</b> ${state.shape === "wide" ? "Wide & short" : "Thin & tall"}</div>
+    <div><b>Body:</b> ${state.body}</div>
+    <div><b>Lid:</b> ${state.lid}</div>
+    <div><b>Text:</b> ${escapeHtml(texts)}</div>
+    <div><b>Stickers:</b> ${escapeHtml(stickerText)}</div>
   `;
 
-
-  $("modal")
-    .classList.add("show");
-
+  $("modal").classList.add("show");
 }
-
-
 
 function escapeHtml(value){
-
-  return value.replace(
-    /[&<>"']/g,
-
-    character => ({
-
-      "&":"&amp;",
-      "<":"&lt;",
-      ">":"&gt;",
-      '"':"&quot;",
-      "'":"&#039;"
-
-    }[character])
-
-  );
-
+  return value.replace(/[&<>"']/g, c => ({ "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#039;" }[c]));
 }
 
-
-
-/* =========================
-   EVENT LISTENERS
-========================= */
-
-
-/* Text */
-
-$("textInput")
-  .addEventListener(
-    "input",
-    event => {
-
-      const item =
-        selected();
-
-
-      if(
-        item &&
-        item.type === "text"
-      ){
-
-        item.value =
-          event.target.value;
-
-        renderItems();
-
-      }
-
-      else if(
-        event.target.value
-      ){
-
-        addText(
-          event.target.value
-        );
-
-      }
-
-    }
-  );
-
-
-
-/* HEX */
-
-$("bodyHexBtn").onclick =
-  () => {
-
-    setHex(
-      "body",
-      $("bodyHex").value
-    );
-
-  };
-
-
-$("lidHexBtn").onclick =
-  () => {
-
-    setHex(
-      "lid",
-      $("lidHex").value
-    );
-
-  };
-
-
-$("textHexBtn").onclick =
-  () => {
-
-    const item =
-      selected();
-
-
-    if(
-      item &&
-      item.type === "text"
-    ){
-
-      const value =
-        $("textHex").value;
-
-
-      if(validHex(value)){
-
-        item.color =
-          value.toUpperCase();
-
-      }
-
-      else{
-
-        alert(
-          "Use a HEX code like #FF69B4."
-        );
-
-      }
-
-
-      render();
-
-    }
-
-  };
-
-
-
-/* Formatting */
-
-$("boldBtn").onclick =
-  () => {
-
-    const item =
-      selected();
-
-
-    if(
-      item &&
-      item.type === "text"
-    ){
-
-      item.bold =
-        !item.bold;
-
-      render();
-
-    }
-
-  };
-
-
-$("italicBtn").onclick =
-  () => {
-
-    const item =
-      selected();
-
-
-    if(
-      item &&
-      item.type === "text"
-    ){
-
-      item.italic =
-        !item.italic;
-
-      render();
-
-    }
-
-  };
-
-
-$("rotateLeft").onclick =
-  () => {
-
-    const item =
-      selected();
-
-
-    if(item){
-
-      item.rot -= 10;
-
-      render();
-
-    }
-
-  };
-
-
-$("rotateRight").onclick =
-  () => {
-
-    const item =
-      selected();
-
-
-    if(item){
-
-      item.rot += 10;
-
-      render();
-
-    }
-
-  };
-
-
-$("smaller").onclick =
-  () => {
-
-    const item =
-      selected();
-
-
-    if(item){
-
-      item.scale =
-        Math.max(
-          .45,
-          item.scale - .1
-        );
-
-      render();
-
-    }
-
-  };
-
-
-$("larger").onclick =
-  () => {
-
-    const item =
-      selected();
-
-
-    if(item){
-
-      item.scale =
-        Math.min(
-          2.5,
-          item.scale + .1
-        );
-
-      render();
-
-    }
-
-  };
-
-
-$("centerItem").onclick =
-  () => {
-
-    const item =
-      selected();
-
-
-    if(item){
-
-      item.x = 50;
-      item.y = 50;
-
-      render();
-
-    }
-
-  };
-
-
-$("deleteItem").onclick =
-  () => {
-
-    if(selected()){
-
-      state.items =
-        state.items.filter(
-          item =>
-            item.id !==
-            state.selected
-        );
-
-
-      state.selected =
-        null;
-
-
-      render();
-
-    }
-
-  };
-
-
-
-/* Canvas */
-
-$("canvas").onclick =
-  event => {
-
-    if(
-      !event.target.closest(".item")
-    ){
-
-      state.selected =
-        null;
-
-      renderItems();
-
-    }
-
-  };
-
-
-
-/* Header */
-
-$("newBtn").onclick =
-  () => newBottle();
-
-
-$("saveBtn").onclick =
-  () => openSummary();
-
-
-
-/* Modal */
-
-$("closeModal").onclick =
-  () =>
-    $("modal")
-      .classList.remove("show");
-
-
-$("saveFinal").onclick =
-  () => {
-
-    saveDesign();
-
-    $("modal")
-      .classList.remove("show");
-
-  };
-
-
-
-/* =========================
-   START APP
-========================= */
-
+/* LISTENERS */
+$("textInput").addEventListener("input", event => {
+  let item = selected();
+  if(!item || item.type !== "text"){
+    addText(event.target.value);
+  } else {
+    item.value = event.target.value;
+    renderItems();
+  }
+});
+
+$("newBtn").onclick = newBottle;
+$("saveBtn").onclick = openSummary;
+$("saveFinal").onclick = () => { saveDesign(); $("modal").classList.remove("show"); };
+$("closeModal").onclick = () => $("modal").classList.remove("show");
+
+$("bodyHexBtn").onclick = () => setHex("body", $("bodyHex").value);
+$("lidHexBtn").onclick = () => setHex("lid", $("lidHex").value);
+
+$("textHexBtn").onclick = () => {
+  const item = selected();
+  if(item && item.type === "text"){
+    item.color = $("textHex").value;
+    render();
+  }
+};
+
+$("boldBtn").onclick = () => {
+  const item = selected();
+  if(item && item.type === "text"){ item.bold = !item.bold; render(); }
+};
+
+$("italicBtn").onclick = () => {
+  const item = selected();
+  if(item && item.type === "text"){ item.italic = !item.italic; render(); }
+};
+
+$("rotateLeft").onclick = () => {
+  const item = selected();
+  if(item){ item.rot -= 15; render(); }
+};
+
+$("rotateRight").onclick = () => {
+  const item = selected();
+  if(item){ item.rot += 15; render(); }
+};
+
+$("smaller").onclick = () => {
+  const item = selected();
+  if(item){ item.scale = Math.max(0.4, item.scale - 0.1); render(); }
+};
+
+$("larger").onclick = () => {
+  const item = selected();
+  if(item){ item.scale += 0.1; render(); }
+};
+
+$("centerItem").onclick = () => {
+  const item = selected();
+  if(item){ item.x = 50; item.y = 50; render(); }
+};
+
+$("deleteItem").onclick = () => {
+  if(state.selected){
+    state.items = state.items.filter(item => item.id !== state.selected);
+    state.selected = null;
+    render();
+  }
+};
+
+$("canvas").onclick = () => {
+  state.selected = null;
+  renderItems();
+};
+
+/* INITIALIZE */
 renderOptions();
-
 render();
 
 </script>
-
 </body>
 </html>
